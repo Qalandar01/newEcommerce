@@ -68,7 +68,7 @@
             <%
                if (user != null) {
             %>
-            <form action="/user-orders.jsp" method="post">
+            <form action="/user/user-orders.jsp" method="post">
                 <button class="btn btn-success">
                     Orders(<%=DB.ORDERS.stream().filter(order -> order.getUserId().equals(user.getId())).toList().size()%>
                     )
