@@ -70,7 +70,7 @@
             <td><%= order.getStatus() %>
             </td>
             <td>
-                <form action="/order-item.jsp?orderId=<%= order.getId() %>" method="post">
+                <form action="/user/order-item.jsp?orderId=<%= order.getId() %>" method="post">
                     <button class="btn btn-primary">Show</button>
                 </form>
             </td>

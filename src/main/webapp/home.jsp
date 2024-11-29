@@ -76,7 +76,7 @@
             </form>
             <div class="welcome-section d-flex align-items-center">
                 <img src="/user/img" alt="User Image" style="max-width: 50px; border-radius: 50%;">
-                <a href="/user-info.jsp" class="ms-2"><%= user.getFirstName() %>
+                <a href="/user/user-info.jsp" class="ms-2"><%= user.getFirstName() %>
                 </a>
             </div>
             <%
