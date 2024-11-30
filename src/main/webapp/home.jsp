@@ -62,8 +62,7 @@
         <div class="d-flex">
             <%
                 Basket basket = (Basket) Objects.requireNonNullElse(session.getAttribute("basket"), new Basket());
-                HttpSession currentSession = session;
-                User user = (User)currentSession.getAttribute("user");
+                User user = (User) session.getAttribute("user");
             %>
             <%
                if (user != null) {
