@@ -1,6 +1,5 @@
 package org.example.demo5.servlets;
 
-import lombok.NoArgsConstructor;
 import org.example.demo5.db.DB;
 import org.example.demo5.entity.Role;
 import org.example.demo5.entity.User;
@@ -23,8 +22,8 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Part profilePicture = req.getPart("profilePicture");
         byte[] bytes = profilePicture.getInputStream().readAllBytes();
-        String firstname = req.getParameter("firstname");
-        String lastname = req.getParameter("lastname");
+        String firstname = req.getParameter("firstName");
+        String lastname = req.getParameter("lastName");
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String password1 = req.getParameter("confirmPassword");
