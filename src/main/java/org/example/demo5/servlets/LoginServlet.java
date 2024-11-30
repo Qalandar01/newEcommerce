@@ -1,6 +1,7 @@
 package org.example.demo5.servlets;
 
 import org.example.demo5.db.DB;
+import org.example.demo5.entity.Role;
 import org.example.demo5.entity.User;
 
 import javax.servlet.ServletException;
@@ -22,6 +23,11 @@ public class LoginServlet extends HttpServlet {
             return;
         }
         User user = first.get();
+        if (user.getRole().equals(Role.ADMIN)){
+            req.getSession().setAttribute("user",user);
+            resp.sendRedirect("/admin/adminChooseCat.jsp");
+            return;
+        }
         req.getSession().setAttribute("user",user);
         resp.sendRedirect("/home.jsp");
 

@@ -22,40 +22,39 @@ public class Filter extends HttpFilter {
                     "/register.jsp"
             )
     );
-    List<String> adminPages = new ArrayList<>(List.of(
-            "/admin"
-    ));
     List<String> userPages = new ArrayList<>(List.of(
             "/user"
     ));
 
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-        if (openPages.contains(req.getRequestURI())){
-            chain.doFilter(req,res);
+        if (openPages.contains(req.getRequestURI())) {
+            chain.doFilter(req, res);
             return;
         }
-        if (adminPages.contains(req.getRequestURI())){
-           User user = (User) req.getSession().getAttribute("user");
-           if (user == null){
-               res.sendRedirect("/login.jsp");
-               return;
-           }
+        if (req.getRequestURI().contains("/admin")) {
+            User user = (User) req.getSession().getAttribute("user");
+            if (user == null) {
+                res.sendRedirect("/login.jsp");
+                return;
+            }
             if (user.getRole().equals(Role.ADMIN)) {
-                chain.doFilter(req,res);
+                chain.doFilter(req, res);
                 return;
             }
         }
-        if (userPages.contains(req.getRequestURI())){
-            User user  = (User) req.getSession().getAttribute("user");
-            if (user == null){
+        if (userPages.contains(req.getRequestURI())) {
+            User user = (User) req.getSession().getAttribute("user");
+            if (user == null) {
                 res.sendRedirect("/login.jsp");
                 return;
             }
             if (user.getRole().equals(Role.USER)) {
-                chain.doFilter(req,res);
+                chain.doFilter(req, res);
+                return;
             }
         }
 
+        chain.doFilter(req, res);
     }
 }

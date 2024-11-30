@@ -43,10 +43,11 @@
             </div>
             <div class="d-flex justify-content-between">
               <button type="submit" class="btn btn-success">Save</button>
-              <form action="/user/logout" method="post">
-                <button type="submit" class="btn btn-danger">Log Out</button>
-              </form>
+
             </div>
+          </form>
+          <form action="/user/logout" method="post">
+            <button type="submit" class="btn btn-danger">Log Out</button>
           </form>
         </div>
       </div>
